@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+    <title>Sistema de Compra Venta</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-modal.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Ventematium 3000</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="nav-producto">Productos</a></li>
+            <li><a href="#" id="nav-cliente">Clientes</a></li>
+            <li><a href="#" id="nav-venta">Ventas</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Ventematium 3000</h1>
+        <p>Ingrese a alguno de los formularios de carga para introducir datos al sistema</p>
+        <p>
+        <center>
+            <a class="btn btn-lg btn-primary" href="#" id="btn-producto">Productos &raquo;</a>
+          <a class="btn btn-lg btn-info" href="#" id="btn-cliente">Clientes &raquo;</a>
+          <a class="btn btn-lg btn-danger" href="#" id="btn-venta">Ventas &raquo;</a>
+        </center>
+        </p>
+      </div>
+
+      
+       <div class="modal fade" id ="alerta" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="alerta-titulo"></h4>
+            </div>
+            <div class="modal-body" id="alerta-mensaje">
+                <!--placeholder -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" >Cerrar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      
+      
+      
+      
+      <!-- =============PRODUCTO=================== -->
+      
+      <!-- Formulario de Producto !-->
+      <div class="modal fade" id ="modal-producto" tabindex="-1">
+        
+      </div><!-- /.modal -->
+      
+      <!-- Panel de Producto -->
+      <div id="panel-producto" hidden>
+          <div class="row">
+              <center>
+                 
+                <h1>Productos</h1>
+                <hr>
+                <br/>
+                <a name="productos"></a>
+              </center>
+          </div>
+          
+          <div class="row">
+              <center>
+                  <a href="#" class="btn btn-primary btn-lg" id="btn-new-producto">Nuevo Producto</a>
+                  <hr>
+                  <br/>
+              </center>
+          </div>
+          
+          <div class="row">
+              <h2>Listado de Productos</h2>
+              <br/>
+              <div id="listado-productos">
+                  
+              </div>
+          </div>
+          
+      </div>
+      
+      <!-- ======CLIENTE====== -->
+      <!-- Formulario de Cliente!-->
+      <div class="modal fade" id ="modal-cliente" tabindex="-1">
+        
+      </div><!-- /.modal -->
+      <div id="panel-cliente" hidden>
+          <div class="row">
+              <center>
+                 
+                <h1>Clientes</h1>
+                <hr>
+                <br/>
+                <a name="clientes"></a>
+              </center>
+          </div>
+          
+          <div class="row">
+              <center>
+                  <a href="#" class="btn btn-primary btn-lg" id="btn-new-cliente">Nuevo Cliente</a>
+                  <hr>
+                  <br/>
+              </center>
+          </div>
+          
+          <div class="row">
+              <h2>Listado de Clientes</h2>
+              <br/>
+              <div id="listado-clientes">
+                  
+              </div>
+          </div>
+      </div>
+      
+      
+      <!-- ======== VENTA ======= -->
+        <!-- Formulario de Cliente!-->
+      <div class="modal fade" id ="modal-venta" tabindex="-1">
+        
+      </div><!-- /.modal -->
+      <div id="panel-venta" hidden>
+          <div class="row">
+              <center>
+                 
+                <h1>Ventas</h1>
+                <hr>
+                <br/>
+                <a name="ventas"></a>
+              </center>
+          </div>
+          
+          <div class="row">
+              <center>
+                  <a href="#" class="btn btn-primary btn-lg" id="btn-new-venta">Nueva Venta</a>
+                  <hr>
+                  <br/>
+              </center>
+          </div>
+          
+          <div class="row">
+              <h2>Listado de Ventas</h2>
+              <br/>
+              <div id="listado-ventas">
+                  
+              </div>
+          </div>
+      </div>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mustache.js"></script>
+    <script src="js/mustache.js"></script>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-modalmanager.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+  
+    <script src="js/underscore-min.js"></script>
+    <script src="js/json2.js"></script>
+    <script src="js/backbone-min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/producto.js"></script>
+    <script src="js/venta.js"></script>
+    <script src="js/cliente.js"></script>
+  </body>
+</html>

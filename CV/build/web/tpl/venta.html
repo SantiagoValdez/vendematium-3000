@@ -1,0 +1,64 @@
+<script id="tabla-venta" type="text/html">
+        <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Id</th>
+                              <th>Fecha</th>
+                              <th>Cliente</th>
+                              <th>Total</th>
+                              <th>Modificar</th>
+                              <th>Eliminar</th>
+                          </tr>  
+                      </thead>
+                      <tbody>
+                          {{#arr}}
+                            <tr>
+                              <th>{{id}}</th>
+                              <th>{{fecha}}</th>
+                              <th>{{cliente}}</th>
+                              <th>{{total}}</th>
+                              <th><a href="#" class="btn btn-primary" onclick="updateVenta({{id}});"> Modificar </a></th>
+                              <th><a href="#" class="btn btn-danger" onclick="deleteVenta({{id}});"> Eliminar </a></th>
+                          </tr> 
+                          {{/arr}}
+                      </tbody>
+                  </table> 
+        
+</script>
+
+<script id="tpl-modal-venta" type="text/html">
+    {{a}}
+    <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Venta</h4>
+            </div>
+            <div class="modal-body">
+            <center>
+              <p>Complete el formulario</p>
+              <form>
+                  <input type="hidden" name="v-id" id="v-id">
+                  <label>Descripcion</label>
+                  <br/>
+                  <input type="text" name="v-descripcion" id="v-descripcion">
+                  <br/>
+                  <label>Costo</label>
+                  <br/>
+                  <input type="number" name="v-costo" id="v-costo">
+                  <br/>
+                  <label>Cantidad</label>
+                  <br/>
+                  <input type="number" name="v-cantidad" id="v-cantidad">
+                  <br/>
+                  
+              </form>
+            </center>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" onclick="saveVenta();">Guardar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+</script>

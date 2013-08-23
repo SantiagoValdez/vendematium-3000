@@ -1,0 +1,86 @@
+<html>
+<head>
+    <script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>  
+
+<button id="ajax">ajax call</button>
+<button id="json">json</button>
+<button id="puto">p</button>
+<button id="postnu">post</button>
+<h1></h1>
+<h2></h2>
+<h3></h3>
+
+
+
+<script type="text/javascript">
+    $('#json').click(function(){ 
+        alert('json');
+         $.getJSON("http://localhost:8080/CV/webresources/entidad.productos",
+         function(data) {
+            alert(data);         
+          });   
+    });
+
+    $('#ajax').click(function(){ 
+        alert('ajax');
+         $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:8080/CV/webresources/entidad.productos",
+             success: function(data){        
+                alert(data);
+                console.log(data);
+                
+             }
+         });
+    });
+    
+    
+    
+    $('#postnu').click(function(){ 
+        alert('ajax');
+        
+        
+        var descripcion = $('#descripcion').val();
+        var cantidad = $('#cantidad').val();
+        var costo = $('#costo').val();
+
+        $.ajax({
+        type: 'post',
+        url: "http://localhost:8080/CV/webresources/entidad.productos",
+        dataType: 'json',
+        data: JSON.stringify({ descripcion: 'street', cantidad: 9, costo: 99 }),
+        contentType: 'application/json; charset=utf-8',
+        success: function (l) { 
+            alert("Done");
+        }
+        });
+    });
+    
+    $('#puto').click(function(){
+    
+        $.getJSON("http://localhost:8080/CV/webresources/entidad.productos", {format: "json"},
+        function(data) {
+        console.log(data);   
+        $("h1").html(data[10].descripcion); 
+         
+        $("h2").html(data[1].descripcion); 
+        
+        $("h3").html(data[2].descripcion); 
+        
+        });
+    });
+    
+    
+    
+
+</script>
+
+
+</body>
+
+
+</html>l>

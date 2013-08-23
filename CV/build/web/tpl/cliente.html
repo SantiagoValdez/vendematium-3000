@@ -1,0 +1,64 @@
+<script id="tabla-cliente" type="text/html">
+        <table class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Id</th>
+                              <th>Descripcion</th>
+                              <th>Costo</th>
+                              <th>Cantidad</th>
+                              <th>Modificar</th>
+                              <th>Eliminar</th>
+                          </tr>  
+                      </thead>
+                      <tbody>
+                          {{#arr}}
+                            <tr>
+                              <th>{{id}}</th>
+                              <th>{{descripcion}}</th>
+                              <th>{{costo}}</th>
+                              <th>{{cantidad}}</th>
+                              <th><a href="#" class="btn btn-primary" onclick="updateCliente({{id}});"> Modificar </a></th>
+                              <th><a href="#" class="btn btn-danger" onclick="deleteCliente({{id}});"> Eliminar </a></th>
+                          </tr> 
+                          {{/arr}}
+                      </tbody>
+                  </table> 
+        
+</script>
+
+<script id="tpl-modal-cliente" type="text/html">
+    {{a}}
+    <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Cliente</h4>
+            </div>
+            <div class="modal-body">
+            <center>
+              <p>Complete el formulario</p>
+              <form>
+                  <input type="hidden" name="c-id" id="c-id">
+                  <label>Descripcion</label>
+                  <br/>
+                  <input type="text" name="c-descripcion" id="c-descripcion">
+                  <br/>
+                  <label>Costo</label>
+                  <br/>
+                  <input type="number" name="c-costo" id="c-costo">
+                  <br/>
+                  <label>Cantidad</label>
+                  <br/>
+                  <input type="number" name="c-cantidad" id="c-cantidad">
+                  <br/>
+                  
+              </form>
+            </center>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" onclick="saveCliente();">Guardar</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+</script>
