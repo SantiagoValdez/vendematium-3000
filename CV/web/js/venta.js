@@ -1,7 +1,17 @@
 /*
+ * Variables Globales para manejo de venta
+ */
+
+var listProductos = [];
+
+
+/*
  * Funciones para ABML de Venta
  */
 function showFormularioVenta(){
+    refreshComboProducto();
+    refreshComboCliente();
+    
     $("#modal-venta").modal('show');
 }
 
@@ -163,3 +173,66 @@ function rellenarFormularioVenta(p){
     $("#p-costo").val(p.costo);
     $("#p-cantidad").val(p.cantidad);
 }
+
+function refreshComboProducto(){
+    $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:8080/CV/webresources/entidad.productos",
+             success: function(data){        
+                rellenarComboProducto(data);
+             }
+    });
+}
+
+function rellenarComboProducto(e){
+    listProductos = e;
+    
+    $("#v-producto").empty();
+    $.Mustache.load('tpl/venta.html').done(
+        function(){
+            
+            console.log("Se cargo el template");
+            console.log(JSON.stringify(e));
+            
+            var salida = $.Mustache.render('tpl-combo-producto',{arr: e});
+            $("#v-producto").append(salida);
+            
+        }
+    );
+    
+    
+    
+}
+
+function refreshComboCliente(){
+    $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:8080/CV/webresources/entidad.cliente",
+             success: function(data){        
+                rellenarComboCliente(data);
+             }
+    });
+}
+
+function rellenarComboCliente(e){
+    var listadoProductos = e;
+    
+    $("#v-cliente").empty();
+    $.Mustache.load('tpl/venta.html').done(
+        function(){
+            
+            console.log("Se cargo el template");
+            console.log(JSON.stringify(e));
+            
+            var salida = $.Mustache.render('tpl-combo-cliente',{arr: e});
+            $("#v-cliente").append(salida);
+            
+        }
+    );
+    
+    
+    
+}
+
