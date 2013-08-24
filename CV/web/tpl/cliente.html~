@@ -3,10 +3,9 @@
                       <thead>
                           <tr>
                               <th>Id</th>
-                              <th>Cedula</th>
-                              <th>Email</th>
-                              <th>Nombre</th>
-                              <th>Saldo</th>
+                              <th>Descripcion</th>
+                              <th>Costo</th>
+                              <th>Cantidad</th>
                               <th>Modificar</th>
                               <th>Eliminar</th>
                           </tr>  
@@ -15,10 +14,9 @@
                           {{#arr}}
                             <tr>
                               <th>{{id}}</th>
-                              <th>{{cedula}}</th>
-                              <th>{{email}}</th>
-                              <th>{{nombre}}</th>
-                              <th>{{saldo}}</th>
+                              <th>{{descripcion}}</th>
+                              <th>{{costo}}</th>
+                              <th>{{cantidad}}</th>
                               <th><a href="#" class="btn btn-primary" onclick="updateCliente({{id}});"> Modificar </a></th>
                               <th><a href="#" class="btn btn-danger" onclick="deleteCliente({{id}});"> Eliminar </a></th>
                           </tr> 
@@ -41,23 +39,19 @@
               <p>Complete el formulario</p>
               <form>
                   <input type="hidden" name="c-id" id="c-id">
-                  <label>Cedula</label>
-                  <!-- id, cedula, email, nombre, saldo -->
+                  <label>Descripcion</label>
                   <br/>
-                  <input type="number" name="c-cedula" id="c-cedula">
+                  <input type="text" name="c-descripcion" id="c-descripcion">
                   <br/>
-                  <label>Email</label>
+                  <label>Costo</label>
                   <br/>
-                  <input type="text" name="c-email" id="c-email">
+                  <input type="number" name="c-costo" id="c-costo">
                   <br/>
-                  <label>Nombre</label>
+                  <label>Cantidad</label>
                   <br/>
-                  <input type="text" name="c-nombre" id="c-nombre">
+                  <input type="number" name="c-cantidad" id="c-cantidad">
                   <br/>
-                  <label>Saldo</label>
-                  <br/>
-                  <input type="number" name="c-saldo" id="c-saldo">
-                  <br/>
+                  
               </form>
             </center>
             </div>
